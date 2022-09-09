@@ -1,12 +1,16 @@
 {
-  "name": "hcesrl/laravel-swagger-api",
-  "description": "API Swagger UI package for Laravel.",
-  "homepage": "https://github.com/HCESrl/laravel-swagger-api",
+  "name": "zabaala/laravel-swagger-api",
+  "description": "API Swagger UI package for Laravel. A fork of hcesrl/laravel-swagger-api",
+  "homepage": "https://github.com/zabaala/laravel-swagger-api",
   "license": "MIT",
   "authors": [
     {
       "name": "Fabio Savina",
       "email": "fabio.savina@gmail.com"
+    },
+    {
+      "name": "Mauricio Rodrigues",
+      "email": "mmauricio.vsr@gmail.com"
     }
   ],
   "keywords": [
