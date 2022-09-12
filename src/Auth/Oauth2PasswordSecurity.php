@@ -2,10 +2,8 @@
 
 namespace LaravelApi\Auth;
 
-
 class Oauth2PasswordSecurity extends BasicAuthenticationSecurity
 {
-
     use Concerns\HasTokenUrl;
     use Concerns\HasScopes;
 
@@ -23,5 +21,4 @@ class Oauth2PasswordSecurity extends BasicAuthenticationSecurity
     {
         $this->security = new \Calcinai\Strut\Definitions\Oauth2PasswordSecurity();
     }
-
 }

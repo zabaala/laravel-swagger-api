@@ -2,10 +2,8 @@
 
 namespace LaravelApi\Auth;
 
-
 class BasicAuthenticationSecurity
 {
-
     /**
      * @var \Calcinai\Strut\Definitions\BasicAuthenticationSecurity
      */
@@ -37,5 +35,4 @@ class BasicAuthenticationSecurity
     {
         return $this->security;
     }
-
 }

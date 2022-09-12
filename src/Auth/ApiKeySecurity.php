@@ -2,10 +2,8 @@
 
 namespace LaravelApi\Auth;
 
-
 class ApiKeySecurity extends BasicAuthenticationSecurity
 {
-
     /**
      * @var \Calcinai\Strut\Definitions\ApiKeySecurity
      */
@@ -56,5 +54,4 @@ class ApiKeySecurity extends BasicAuthenticationSecurity
         $this->security->setIn('query');
         return $this;
     }
-
 }

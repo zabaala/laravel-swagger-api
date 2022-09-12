@@ -2,7 +2,6 @@
 
 namespace LaravelApi\Endpoints;
 
-
 use Calcinai\Strut\Definitions\BodyParameter;
 use Calcinai\Strut\Definitions\HeaderParameterSubSchema;
 use Calcinai\Strut\Definitions\Operation as StrutOperation;
@@ -15,7 +14,6 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationRuleParser;
-
 
 /**
  * @method $this defaults(string $key, mixed $value)
@@ -37,7 +35,6 @@ use Illuminate\Validation\ValidationRuleParser;
  */
 class Operation extends StrutOperation
 {
-
     /**
      * @var \Illuminate\Routing\Route
      */
@@ -69,7 +66,7 @@ class Operation extends StrutOperation
 
         $this->initTags((array)$route->getAction('tags'));
 
-        if ( ! $route->getAction('uses') instanceof \Closure) {
+        if (! $route->getAction('uses') instanceof \Closure) {
             $this->initOperationId($route);
         }
 
@@ -229,7 +226,7 @@ class Operation extends StrutOperation
      */
     public function addFormDataParameter($name, $descriptionOrCallback = null, $required = false, $type = 'string')
     {
-        if ( ! $this->has('consumes')) {
+        if (! $this->has('consumes')) {
             $this->setConsumes(['application/x-www-form-urlencoded']);
         }
         return $this->registerParameter(
@@ -353,7 +350,7 @@ class Operation extends StrutOperation
      */
     public function bindRequest($request)
     {
-        $rules = (new $request)->rules();
+        $rules = (new $request())->rules();
 
         return $this->bindRules(
             $this->getValidationRuleParser()->explode($rules)->rules
@@ -413,5 +410,4 @@ class Operation extends StrutOperation
 
         return $this;
     }
-
 }

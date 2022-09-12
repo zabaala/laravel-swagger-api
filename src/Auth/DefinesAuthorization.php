@@ -2,14 +2,10 @@
 
 namespace LaravelApi\Auth;
 
-
 use Calcinai\Strut\Definitions\SecurityDefinitions;
-
 
 trait DefinesAuthorization
 {
-
-
     /**
      * @param string $name
      *
@@ -84,7 +80,7 @@ trait DefinesAuthorization
      */
     protected function securityDefinition($name, $class)
     {
-        $instance = new $class;
+        $instance = new $class();
 
         $this->getSecurityDefinitions()->set($name, $instance->toBase());
 
@@ -97,11 +93,10 @@ trait DefinesAuthorization
      */
     protected function getSecurityDefinitions()
     {
-        if ( ! $this->swagger->has('securityDefinitions')) {
+        if (! $this->swagger->has('securityDefinitions')) {
             $this->swagger->setSecurityDefinitions(SecurityDefinitions::create());
         }
 
         return $this->swagger->getSecurityDefinitions();
     }
-
 }

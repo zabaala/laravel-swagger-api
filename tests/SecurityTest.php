@@ -2,7 +2,6 @@
 
 namespace LaravelApi\Tests;
 
-
 use LaravelApi\Auth\ApiKeySecurity;
 use LaravelApi\Auth\BasicAuthenticationSecurity;
 use LaravelApi\Auth\Oauth2AccessCodeSecurity;
@@ -10,11 +9,8 @@ use LaravelApi\Auth\Oauth2ApplicationSecurity;
 use LaravelApi\Auth\Oauth2ImplicitSecurity;
 use LaravelApi\Auth\Oauth2PasswordSecurity;
 
-
 class SecurityTest extends TestCase
 {
-
-
     protected function assertSecurityDefinitionExists($name)
     {
         $this->assertTrue($this->api->swagger()->getSecurityDefinitions()->has('test_auth'));
@@ -181,5 +177,4 @@ class SecurityTest extends TestCase
             'test_auth'
         );
     }
-
 }

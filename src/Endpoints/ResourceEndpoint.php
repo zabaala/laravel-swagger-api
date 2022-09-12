@@ -2,17 +2,14 @@
 
 namespace LaravelApi\Endpoints;
 
-
 use Calcinai\Strut\Definitions\SecurityRequirement;
 use Illuminate\Routing\PendingResourceRegistration;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use LaravelApi\Api;
 
-
 class ResourceEndpoint extends PendingResourceRegistration
 {
-
     /**
      * @var Api
      */
@@ -185,5 +182,4 @@ class ResourceEndpoint extends PendingResourceRegistration
 
         return $this;
     }
-
 }

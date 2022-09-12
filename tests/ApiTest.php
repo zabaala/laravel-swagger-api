@@ -2,7 +2,6 @@
 
 namespace LaravelApi\Tests;
 
-
 use Calcinai\Strut\Swagger;
 use Illuminate\Contracts\Routing\Registrar;
 use Illuminate\Database\Eloquent\Model;
@@ -12,16 +11,13 @@ use LaravelApi\Endpoints\ModelsEndpointRegistry;
 use LaravelApi\Endpoints\Operation;
 use LaravelApi\Endpoints\ResourceEndpoint;
 
-
 class Page extends Model
 {
-
 }
 
 
 class ApiTest extends TestCase
 {
-
     /**
      * @var Router
      */
@@ -41,7 +37,7 @@ class ApiTest extends TestCase
         $methods = ['get', 'post', 'put', 'delete', 'patch', 'options'];
 
         foreach ($methods as $method) {
-            $operation = $this->api->$method ('uri', 'Controller@action');
+            $operation = $this->api->$method('uri', 'Controller@action');
             $this->assertInstanceOf(Operation::class, $operation);
         }
 
@@ -122,6 +118,4 @@ class ApiTest extends TestCase
     {
         $this->assertTrue(is_array($this->api->jsonSerialize()));
     }
-
-
 }

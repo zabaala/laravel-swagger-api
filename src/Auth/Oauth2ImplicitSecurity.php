@@ -2,10 +2,8 @@
 
 namespace LaravelApi\Auth;
 
-
 class Oauth2ImplicitSecurity extends BasicAuthenticationSecurity
 {
-
     use Concerns\HasAuthorizationUrl;
     use Concerns\HasScopes;
 
@@ -23,5 +21,4 @@ class Oauth2ImplicitSecurity extends BasicAuthenticationSecurity
     {
         $this->security = new \Calcinai\Strut\Definitions\Oauth2ImplicitSecurity();
     }
-
 }

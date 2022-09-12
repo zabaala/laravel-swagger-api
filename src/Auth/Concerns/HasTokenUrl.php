@@ -1,12 +1,9 @@
 <?php
 
-
 namespace LaravelApi\Auth\Concerns;
-
 
 trait HasTokenUrl
 {
-
     /**
      * @param string $url
      *
@@ -18,5 +15,4 @@ trait HasTokenUrl
 
         return $this;
     }
-
 }
