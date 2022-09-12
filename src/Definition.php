@@ -7,37 +7,38 @@ use Calcinai\Strut\Definitions\Schema\Properties\Properties;
 
 class Definition extends Schema
 {
-    protected $name;
-
+    protected string $name;
 
     public function __construct($data = [])
     {
         parent::__construct($data);
-
         $this->setProperties(Properties::create());
     }
-
 
     /**
      * @param string $name
      * @return Definition
      */
-    public function setName($name)
+    public function setName(string $name): Definition
     {
         $this->name = $name;
         return $this;
     }
 
-
     /**
      * @param string $name
      * @param string $type
-     * @param string $description
-     * @param string $default
+     * @param string|null $description
+     * @param string|null $default
      * @return Definition
      * @throws \Exception
      */
-    public function addProperty($name, $description = null, $default = null, $type = 'string')
+    public function addProperty(
+        string $name,
+        string $description = null,
+        string $default = null,
+        string $type = 'string'
+    ): Definition
     {
         $property = Schema::create(compact('type', 'description', 'default'));
 
@@ -50,7 +51,7 @@ class Definition extends Schema
     /**
      * @return Schema
      */
-    public function toRef()
+    public function toRef(): Schema
     {
         return Schema::create()->setRef("#/definitions/{$this->name}");
     }

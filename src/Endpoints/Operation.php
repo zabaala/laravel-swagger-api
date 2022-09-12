@@ -329,15 +329,22 @@ class Operation extends StrutOperation
 
 
     /**
-     * @param integer $code
+     * @param string|integer $code
      * @param string  $description
+     * @param mixed  $schema
      *
      * @return $this
      * @throws \Exception
      */
-    public function addResponse($code, $description)
+    public function addResponse($code, string $description, $schema = null): Operation
     {
-        $this->getResponses()->set($code, Response::create(compact('description')));
+        $response = Response::create(compact('description'));
+
+        if (! is_null($schema)) {
+            $response->setSchema($schema);
+        }
+
+        $this->getResponses()->set((string) $code, $response);
 
         return $this;
     }
