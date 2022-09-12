@@ -7,8 +7,8 @@
 This package is a fork of HCESrl/laravel-swagger-api, with some additional updates like as:
 
 - Support to Laravel 9
-- Code style fixed based on PSR12
-- Support to components
+- Support to PHP 7.4
+- Support to response with Schemas
 
 ## The Package
 
@@ -36,7 +36,7 @@ in order to create a [Swagger UI](https://swagger.io/tools/swagger-ui/) complian
 
 
 ## Installation
-hc  
+
 Install the package:
 ```bash
 composer require hcesrl/laravel-swagger-api
@@ -159,9 +159,40 @@ Use the `addResponse` to define the route response types:
 ```php
 use LaravelApi\Facade as Api;
 
+$pet = Schema::create()
+    ->addRequired('id')
+    ->addRequired('name')
+
+    ->setProperties(Properties::create()
+        ->set('id', Schema::create()
+            ->setType('integer')
+            ->setFormat('int64')
+        )
+        ->set('name', Schema::create()
+            ->setType('string')
+        )
+        ->set('tag', Schema::create()
+            ->setType('string')
+        )
+    );
+    
+$error = Schema::create()
+    ->addRequired('code')
+    ->addRequired('message')
+
+    ->setProperties(Properties::create()
+        ->set('code', Schema::create()
+            ->setType('integer')
+            ->setFormat('int32')
+        )
+        ->set('error', Schema::create()
+            ->setType('string')
+        )
+    );
+
 Api::get('some-uri', 'Controller@action')
-   ->addResponse(200, 'Successful operation')
-   ->addResponse(422, 'Validation error');
+   ->addResponse(200, 'Successful operation', $pet)
+   ->addResponse(422, 'Validation error', $error);
 ```
 
 ## Advanced configuration
