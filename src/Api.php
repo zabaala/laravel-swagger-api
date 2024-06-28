@@ -122,6 +122,7 @@ class Api implements \JsonSerializable
     /**
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return $this->swagger->jsonSerialize();
